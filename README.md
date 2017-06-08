@@ -30,7 +30,7 @@ The https://github.com/Azure/WebJobsExtensionSamples/tree/master/ScriptRuntimeSa
 To load a custom extension in Azure Functions:
 1. Stop the site 
 2.	Set appsetting `AzureWebJobs_ExtensionsPath=d:\home\customExt`.  Functions will scan this directory and assume each subdirectory is a custom extension and attempt to load it. 
-3.	Copy the sample extension binaries (ie, contents of $\WebJobsExtensionSamples\SampleExtension\bin\Debug)  to `d:\home\customExt\sample` 
+3.	Copy the sample extension binaries (ie, contents of $\WebJobsExtensionSamples\SampleExtension\bin\Debug)  to `d:\home\customExt\sample` . (Your extension dll filename must contain the word "extension" in it! See https://github.com/Azure/azure-webjobs-sdk-script/issues/1586 ) 
 4.	Set appsetting `SamplePath=d:\home\sample`. This is config for the sample extension. See https://github.com/Azure/WebJobsExtensionSamples/blob/master/SampleExtension/SampleAttribute.cs#L21 
 5.	Ensure directory d:\home\sample is created 
 6.	Restart site 
