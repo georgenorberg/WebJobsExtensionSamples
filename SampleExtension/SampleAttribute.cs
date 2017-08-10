@@ -4,6 +4,7 @@
 using System;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Description;
+using System.ComponentModel.DataAnnotations;
 
 namespace SampleExtension
 {
@@ -15,6 +16,7 @@ namespace SampleExtension
     {
         // Name of file to read. 
         [AutoResolve]
+        [RegularExpression("^[A-Za-z][A-Za-z0-9]{2,128}$")]
         public string FileName { get; set; }
 
         // path where 
