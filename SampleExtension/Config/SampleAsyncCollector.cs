@@ -28,6 +28,7 @@ namespace SampleExtension.Config
         public Task AddAsync(SampleItem item, CancellationToken cancellationToken = default(CancellationToken))
         {
             var path = Path.Combine(_root, item.Name);
+            Directory.CreateDirectory(Path.GetFullPath(_root));
             File.WriteAllText(path, item.Contents);
             return Task.CompletedTask;
         }

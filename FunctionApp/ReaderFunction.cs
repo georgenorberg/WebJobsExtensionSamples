@@ -13,9 +13,8 @@ namespace FunctionApp
     public static class ReaderFunction
     {
         [FunctionName("ReaderFunction")]
-        [NoAutomaticTrigger]
         public static void Run(
-            SampleItem item,
+            [HttpTrigger] SampleItem item,
             [Sample(FileName = "{Name}")] string contents, // Bind to SampleExtension  
             TraceWriter log)
         {
@@ -48,7 +47,7 @@ namespace FunctionApp
         }
 
 #if false
-        #region Using 2nd extensions
+#region Using 2nd extensions
 
         // Bind to input as rich type:
         // BindToInput<SampleItem> --> item
@@ -60,7 +59,7 @@ namespace FunctionApp
         {
             log.WriteLine($"Via custom type {item.Name}:{item.Value}");
         }
-        #endregion
+#endregion
 #endif
     }
 }

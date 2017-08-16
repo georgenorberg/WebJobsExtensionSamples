@@ -1,8 +1,9 @@
 ﻿// Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 
+using FunctionApp;
 using Microsoft.Azure.WebJobs;
-using SampleFunctions;
+using SampleExtension;
 using System;
 
 namespace Host
@@ -30,11 +31,24 @@ namespace Host
 
             // Test some invocations. 
             // We're not using listeners here, so we can invoke directly. 
-            var method = typeof(Functions).GetMethod("Writer");
-            host.Call(method);
 
-            method = typeof(Functions).GetMethod("Reader");
-            host.Call(method, new { name = "tom" });
+
+            var method = typeof(WriterFunction).GetMethod("Run");
+            host.Call(method, new {
+                item = "ignored",
+                name = "tom"
+            });
+
+            method = typeof(ReaderFunction).GetMethod("Run");
+            host.Call(method, new
+            {
+                Name = "tom",
+                item = new SampleItem
+                {
+                    Name = "abc",
+                    Contents = "happy"
+                }
+            });
 
             // host.RunAndBlock();
         }

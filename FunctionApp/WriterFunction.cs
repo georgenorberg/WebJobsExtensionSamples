@@ -12,14 +12,18 @@ namespace FunctionApp
     public static class WriterFunction
     {
         [FunctionName("WriterFunction")]
-        public static HttpResponseMessage Run(
-            HttpRequestMessage req,
-            [HttpTrigger] SampleItem item,
-            [Sample] ICollector<string> sampleOutput, TraceWriter log)
+        public static void Run(
+            [HttpTrigger] string item,
+            [Sample] ICollector<SampleItem> sampleOutput, TraceWriter log)
         {
-            sampleOutput.Add($"{item.Name}:{item.Contents}");
+            // sampleOutput.Add($"{item.Name}:{item.Contents}");
+            sampleOutput.Add(new SampleItem
+            {
+                 Name = "tom",
+                 Contents = "hello"
+            });
 
-            return req.CreateResponse(HttpStatusCode.OK, "Wrote new item:" + item.Name);
+            //return new HttpResponseMessage(HttpStatusCode.OK);
         }
     }
 }

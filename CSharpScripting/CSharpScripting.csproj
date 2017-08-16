@@ -4,7 +4,6 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="host.json" />
-    <None Remove="local.settings.json" />
     <None Remove="Reader\function.json" />
     <None Remove="Reader\run.csx" />
     <None Remove="Writer\function.json" />
@@ -12,9 +11,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="host.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="local.settings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Writer\function.json">
@@ -37,5 +33,10 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="local.settings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>
