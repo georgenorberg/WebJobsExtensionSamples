@@ -22,8 +22,6 @@ namespace FunctionApp
                  Name = "tom",
                  Contents = "hello"
             });
-
-            //return new HttpResponseMessage(HttpStatusCode.OK);
         }
     }
 }
