@@ -29,7 +29,7 @@ To use the binding in C#, simply add a reference to the project or assembly and 
 
 For JavaScript, the process is currently manual. Do the following:
 1. Copy the extension to an output folder such as "extensions". This can be done in a post-build step in the .csproj
-2. Add the app setting `AzureWebJobs_ExtensionsPath` to local.settings.json (or in Azure, in App Settings). Set the value to your "extension" folder from the previous step.
+2. Add the app setting `AzureWebJobs_ExtensionsPath` to local.settings.json (or in Azure, in App Settings). Set the value to the **parent** of the "extension" folder from the previous step.
 
 Here's an example of using the writer functionality:
 
