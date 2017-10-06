@@ -2,6 +2,8 @@
 
 This repo has a simple input and output binding for use with Azure Functions or WebJobs. The sample extension supports reading and writing name/value pairs from a text file. It demonstrates input bindings, output bindings, and converters.
 
+To author a custom binding for Azure Functions, you must use the 2.0 runtime. See [Azure Functions 2.0 support](https://aka.ms/func-xplat).
+
 For reference documentation on authoring an extension, see [Creating custom input and output bindings](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings).
 
 To write a new value, use an `ICollector`:
